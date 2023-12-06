@@ -11,7 +11,7 @@ class Program
 {
     static void Main()
     {
-        TestClass test = new TestClass();
+        /*TestClass test = new TestClass();
         int age;
         do
         {
@@ -29,6 +29,23 @@ class Program
             test.LastName = Console.ReadLine();
         } while (string.IsNullOrEmpty(test.LastName));
 
-        Console.WriteLine($"{test.Age} {test.Name} {test.LastName}");
+        Console.WriteLine($"{test.Age} {test.Name} {test.LastName}");*/
+
+        int age;
+        string gender;
+
+        do
+        {
+            Console.Write("Введите возраст: ");
+        } while (!int.TryParse(Console.ReadLine(), out age) || age <= 0);
+
+        do
+        {
+            Console.Write("Какой у вас пол(М, Ж): ");
+            gender = Console.ReadLine();
+        } while (string.IsNullOrEmpty(gender));
+
+        Club club = new Club(age, gender.ToUpper()[0]);
+        club.CheckAge();
     }
 }
